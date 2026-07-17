@@ -4,23 +4,6 @@ Proyek ini bertujuan untuk memprediksi probabilitas terjadinya hujan menggunakan
 
 ---
 
-## 📁 Struktur Direktori
-
-```text
-Rain_Prediction/
-├── Data/
-│   └── weatherAUS.csv                  # Dataset cuaca mentah dari Australia
-├── models/
-│   └── smart_farming_lgbm_model.pkl    # Serialized model stacking classifier (.pkl)
-├── notebooks/
-│   └── coding_test_Final.ipynb         # Eksplorasi data (EDA), rekayasa fitur, & pelatihan model
-├── src/
-│   └── inference.py                    # Script inferensi untuk melakukan prediksi pada data baru
-└── requirements.txt                    # Daftar library Python yang dibutuhkan
-```
-
----
-
 ## ⚙️ Dependencies (Persyaratan Sistem)
 
 Proyek ini memerlukan Python versi **3.10 ke atas** (kompatibel hingga versi **3.14** menggunakan prebuilt wheels). Library utama yang digunakan meliputi:
@@ -33,14 +16,14 @@ Proyek ini memerlukan Python versi **3.10 ke atas** (kompatibel hingga versi **3
 * **CatBoost**: Algoritma boosting pendukung berbasis kategori.
 
 ### Cara Instalasi Dependencies:
-Buka terminal Anda di folder root `Rain_Prediction`, lalu jalankan:
+Buka terminal Anda di folder root proyek, lalu jalankan:
 ```bash
 pip install -r requirements.txt
 ```
 
 ---
 
-## 🚀 Cara Menjalankan Inferensi
+## 🚀 Cara Menjalankan Secara Lokal
 
 Script inferensi berada di dalam direktori `src/`. Anda dapat mensimulasikan hasil prediksi pada 5 hari pertama dari dataset dengan menjalankan perintah berikut dari folder root proyek:
 
@@ -54,6 +37,25 @@ Script akan memuat dataset mentah secara dinamis, melakukan preprocessing dan re
 * **Aksi Rekomendasi**: 
   * `Tunda Pemupukan & Siapkan Pelindung` (jika probabilitas melebihi batas threshold optimal).
   * `Aman untuk Tanam` (jika probabilitas di bawah batas threshold optimal).
+
+---
+
+## 📓 Menjalankan di Google Colab
+
+Anda juga dapat menjalankan proses EDA, rekayasa fitur, pelatihan model, dan evaluasi langsung di Google Colab.
+
+* **Link Notebook**: [Google Colab - Weather Rain Forecasting ML](https://colab.research.google.com/drive/1g0ZBjQARQp243VQ8EUoDuxhG0iBLm0q4?usp=sharing)
+
+### Langkah-langkah Menjalankan di Google Colab:
+1. Klik link di atas untuk membuka notebook di Google Colab.
+2. Buat salinan notebook tersebut ke Google Drive Anda dengan mengklik menu **File > Save a copy in Drive** (Simpan salinan di Drive).
+3. Sambungkan ke runtime Google Colab dengan mengklik tombol **Connect** (Sambungkan) di pojok kanan atas.
+4. Jalankan sel instalasi library eksternal (langkah pertama dalam notebook):
+   ```python
+   !pip install category_encoders eli5 catboost optuna shap -q
+   ```
+5. Unggah dataset `weatherAUS.csv` ke dalam direktori kerja Colab atau hubungkan ke Google Drive untuk membaca dataset.
+6. Jalankan setiap sel kode secara berurutan dengan menekan `Shift + Enter` atau tombol Play di sebelah kiri sel.
 
 ---
 
