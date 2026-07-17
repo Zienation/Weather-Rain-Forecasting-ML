@@ -1,0 +1,7 @@
+pandas
+numpy
+joblib
+scikit-learn>=1.7.0
+xgboost>=2.1.0
+catboost
+lightgbm
